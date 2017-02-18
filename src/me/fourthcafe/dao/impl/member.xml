@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="me.fourthcafe.dao.face.MemberDao">
+
+	<select id="getAllMember" resultType="me.fourthcafe.dto.Member" parameterType="me.fourthcafe.dto.Member">
+		SELECT
+		    user_no userNo,
+		    user_id userId,
+		    user_pw userPw,
+		    user_name userName,
+		    company_name companyName
+		FROM user;
+	</select>
+	
+</mapper>

@@ -68,4 +68,12 @@ public class Member {
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Member [userNo=" + userNo + ", userId=" + userId + ", userPw=" + userPw + ", userName=" + userName
+				+ ", companyName=" + companyName + "]";
+	}
 }
