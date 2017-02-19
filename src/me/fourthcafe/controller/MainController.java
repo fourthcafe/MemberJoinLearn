@@ -17,6 +17,8 @@ public class MainController {
 	@Autowired
 	private MemberDao memberDao;
 	
+	
+	
 	@RequestMapping("/")
 	public ModelAndView index() {
 		List<Member> allMember = memberDao.getAllMember();
