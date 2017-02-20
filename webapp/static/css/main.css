@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+.body_wrapper {
+	
+}
+
+.content {
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.regist {
+	position: relative;
+}
+
+.btn {
+	display: inline;
+	padding: 5px;
+	margin: 0 15px;
+	border-radius: 5%; 
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+	background-color: #6cc644;
+	background-image: -webkit-linear-gradient(#91dd70, #55ae2e);
+	background-image: linear-gradient(#91dd70, #55ae2e);
+	border: 1px solid #5aad35;
+}
+
+.btn:hover {
+    background-color: #55a532;
+    background-image: linear-gradient(#85d063, #4f992f);
+    border-color: #519d30;
+}
+
+.btn a {
+	text-decoration: none;
+	color: white;
+}
