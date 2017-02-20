@@ -1,12 +1,17 @@
 package me.fourthcafe.dto;
 
 
+/**
+ * @author fourthcafe
+ *
+ */
 public class Member {
 	
 	private int userNo;
 	private String userId;
 	private String userPw;
 	private String userName;
+	private String companyNo;
 	private String companyName;
 	
 	
@@ -59,6 +64,18 @@ public class Member {
 	
 	
 	
+	public String getCompanyNo() {
+		return companyNo;
+	}
+	
+	
+	
+	public void setCompanyNo(String companyNo) {
+		this.companyNo = companyNo;
+	}
+	
+	
+	
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -74,6 +91,6 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [userNo=" + userNo + ", userId=" + userId + ", userPw=" + userPw + ", userName=" + userName
-				+ ", companyName=" + companyName + "]";
+				+ ", companyNo=" + companyNo + ", companyName=" + companyName + "]";
 	}
 }

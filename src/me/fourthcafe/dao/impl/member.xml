@@ -3,14 +3,56 @@
 
 <mapper namespace="me.fourthcafe.dao.face.MemberDao">
 
+	<insert id="regist" parameterType="me.fourthcafe.dto.Member">
+		INSERT INTO member (
+			user_id, user_pw, user_name, company_no
+		) VALUES (
+			#{userId}, #{userPw}, #{userName}, #{companyNo}
+		)
+	</insert>
+
 	<select id="getAllMember" resultType="me.fourthcafe.dto.Member" parameterType="me.fourthcafe.dto.Member">
 		SELECT
-		    user_no userNo,
-		    user_id userId,
-		    user_pw userPw,
-		    user_name userName,
-		    company_name companyName
-		FROM user;
+			m.user_no userNo, m.user_id userId, m.user_pw userPw, m.user_name userName, m.company_no companyNo, c.company_name companyName
+		FROM
+    		member m JOIN company c
+    		ON m.company_no = c.company_no
 	</select>
+	
+	<select id="checkDuplicateId" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM member
+		<where>
+	    	user_id = #{id}
+		</where>
+	</select>
+	
+	<select id="login" resultType="me.fourthcafe.dto.Member" parameterType="me.fourthcafe.dto.Member">
+		SELECT
+			m.user_no userNo, m.user_id userId, m.user_pw userPw, m.user_name userName, m.company_no companyNo
+		FROM member m
+		<where>
+			user_id = #{userId}
+			AND user_pw = #{userPw}
+		</where>
+	</select>
+	
+	<update id="update" parameterType="me.fourthcafe.dto.Member">
+		UPDATE member
+		SET
+			user_pw = #{userPw},
+        	user_name = #{userName},
+        	company_No = #{companyNo}
+		<where>
+	        user_no = #{userNo}
+		</where>
+	</update>
+	
+	<delete id="delete" parameterType="me.fourthcafe.dto.Member">
+		DELETE FROM member
+		<where>
+			user_id = #{userId}
+			AND user_name = #{userName}
+		</where>
+	</delete>
 	
 </mapper>

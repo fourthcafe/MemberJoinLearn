@@ -6,6 +6,12 @@
 <title>Fourthcafe::로그인</title>
 </head>
 <body>
-	login.jsp
+	<form action="/member/login" method="post">
+		<input type="text" name="userId" />
+		<br/>
+		<input type="password" name="userPw" />
+		<br/>
+		<input type="submit" />
+	</form>
 </body>
 </html>

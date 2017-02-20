@@ -8,17 +8,7 @@
 </head>
 <body>
 	<div class="sub">
-		<form action="/member/regist" method="post">
-			ID: <input type="text" name="userId" />
-			<br/>
-			PW: <input type="password" name="userPw" />
-			<br/>
-			NM: <input type="text" name="userName" />
-			<br/>
-			CN: <input type="text" name="companyNo" />
-			<br/>
-			<input type="submit">
-		</form>
+		가입에 실패했습니다.
 	</div>
 </body>
 </html>
