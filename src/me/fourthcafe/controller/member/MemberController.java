@@ -6,8 +6,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.gson.JsonObject;
 
 import me.fourthcafe.dto.Member;
 import me.fourthcafe.service.face.MemberService;
@@ -108,28 +113,32 @@ public class MemberController {
 	
 	
 	
-	@RequestMapping("/update")
-	public ModelAndView update(Member member) {
+	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public String update(@RequestBody Member member) {
 		memberService.update(member);
-//		TODO: 정보 갱신하기
-//		session.setAttribute("member", value);
+		// TODO: 정보 갱신하기
+		// session.setAttribute("member", value);
 		
-		ModelAndView mav = new ModelAndView("redirect:/");
-		return mav;
+		JsonObject jsonObject = new JsonObject();
+		jsonObject.addProperty("result", true);
+		
+		return jsonObject.toString();
 	}
 	
 	
 	
-	@RequestMapping("/delete")
-	public ModelAndView delete(HttpSession session) {
+	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+	@ResponseBody
+	public String delete(HttpSession session) {
 		Member member = (Member) session.getAttribute("member");
 		if (member != null) {
 			memberService.delete(member);
 			session.invalidate();
+			return "true";
+			
+		} else {
+			return "false";
 		}
-		
-		ModelAndView mav = new ModelAndView("redirect:/");
-		return mav;
 	}
-	
 }
