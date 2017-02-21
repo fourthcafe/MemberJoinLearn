@@ -10,21 +10,14 @@
 <script type="text/javascript">
 $(function() {
 	$('#update_form').submit(function() {
-		var userNo = $(this).find('[name=userNo]').val();
-		var userId = $(this).find('[name=userId]').val();
-		var userPw = $(this).find('[name=userPw]').val();
-		var userName = $(this).find('[name=userName]').val();
-		var companyNo = $(this).find('[name=companyNo]').val();
-		
 		var data = JSON.stringify({
-			userNo: userNo,
-			userId: userId,
-			userPw: userPw,
-			userName: userName,
-			companyNo: companyNo
+			userNo: $(this).find('[name=userNo]').val(),
+			userId: $(this).find('[name=userId]').val(),
+			userPw: $(this).find('[name=userPw]').val(),
+			userName: $(this).find('[name=userName]').val(),
+			companyNo: $(this).find('[name=companyNo]').val()
 		});
 		
-		console.log(data);
 		
 		$.ajax({
 			type: 'put',
